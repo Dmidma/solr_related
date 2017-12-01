@@ -1,0 +1,24 @@
+wc -l vgd.csv
+
+head -n 1 vgd.csv | tr ',' '\n' | wc -l
+
+$ bin/solr start
+$ bin/solr create -c games
+$ bin/post -c games vgd.csv
+
+http://localhost:8983/solr/#/games
+
+http://localhost:8983/solr/#/games/query
+
+$ http -b :8983/solr/games/select q==*:* wt==csv rows==1770 fl=="Console, Title, US_Sales__millions_, YearReleased, Publisher, Genre, Usedprice, lnUsedPrice, Review_Score, MaxPlayers, Online, Multiplatform" > fvgd.csv
+
+
+$ sed -i.old '1s;.*;console,title,us_sales_millions,year_released,publisher,genre,used_price,ln_used_price,review_score,max_players,online,multi_platform;' fvgd.csv
+
+
+
+
+
+
+
+

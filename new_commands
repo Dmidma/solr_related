@@ -1,0 +1,10 @@
+XML extraction with XMLStarlet (XLST CLI):
+
+xml sel -t -m "//fieldTpye" -v @name -n managed-schema
+              "//copyField" -c -n managed-schema | wc -l
+              "//"[@docValues]" -v "concat(local-name(), ",@name, 'docValues:', @docValues)" -n managed-schema
+              "//requestHandler" -v "@name" -n solrconfig.xml
+
+
+HTTPie instead of CURL:
+    http -b :8983/solr/demo/select q==*:* rows==0

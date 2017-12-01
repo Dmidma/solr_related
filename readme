@@ -1,0 +1,21 @@
+date
+    bin/solr start -e cloud -noprompt
+    open http://localhost:8983/solr
+    bin/post -c gettingstarted docs/
+    open http://localhost:8983/solr/gettingstarted/browse
+    bin/post -c gettingstarted example/exampledocs/*.xml
+    bin/post -c gettingstarted example/exampledocs/books.json
+    bin/post -c gettingstarted example/exampledocs/books.csv
+    bin/post -c gettingstarted -d "<delete><id>SP2514N</id></delete>"
+    bin/solr healthcheck -c gettingstarted
+date
+
+
+
+    ://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-TypeTokenFilterfield name="addr_to" type="email" indexed="true" stored="true" required="true" multiValued="true"/>
+
+
+https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-ICUFoldingFilter
+
+
+https://cwiki.apache.org/confluence/display/solr/The+DisMax+Query+Parser
